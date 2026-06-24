@@ -1,0 +1,14 @@
+import React from "react";
+import { BudgetForm, ExpenseForm } from "@/components/expenses/form";
+
+function Forms() {
+  return (
+    <div className="bg-white/5 border border-white/10 rounded-xl p-5 flex flex-col gap-3">
+        <BudgetForm />
+      <div className="h-0.5 bg-zinc-500 my-4"></div>
+        <ExpenseForm />
+    </div>
+  );
+}
+
+export default Forms;
