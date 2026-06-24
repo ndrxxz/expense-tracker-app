@@ -1,10 +1,10 @@
 import React from "react";
-import { Navbar, Hero } from "@/components";
+import { Navbar, Hero } from "@/components/layout";
 import { Expenses } from "@/components/expenses";
 
 function App() {
   return (
-    <div className="min-h-screen bg-zinc-950 text-white flex flex-col gap-6">
+    <div className="min-h-screen bg-zinc-950 text-white flex flex-col gap-10">
       <Navbar />
       <Hero />
       <Expenses />
