@@ -1,0 +1,11 @@
+import React from "react"
+
+function Button({ label }) {
+  return (
+    <button className="w-full bg-zinc-600 hover:bg-zinc-700 text-white text-sm font-semibold rounded-lg py-2.5 cursor-pointer">
+      {label}
+    </button>
+  )
+}
+
+export default Button
