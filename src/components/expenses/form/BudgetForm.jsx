@@ -1,9 +1,17 @@
 import { Button, FormField } from "@/components/ui";
-import React from "react";
+import React, { useState } from "react";
 
-function BudgetForm() {
+function BudgetForm({ onSetBudget }) {
+  const [budgetInput, setBudgetInput] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSetBudget(parseFloat(budgetInput));
+    setBudgetInput("");
+  }
+
   return (
-    <form className="flex flex-col gap-3">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
       <div className="text-xs font-semibold text-zinc-500 uppercase tracking-wide">
         Set budget
       </div>
@@ -12,6 +20,8 @@ function BudgetForm() {
         label="Monthly budget (₱)"
         id="input-budget"
         type="number"
+        value={budgetInput}
+        onChange={(e) => setBudgetInput(e.target.value)}
         placeholder="e.g. 20000"
       />
 
