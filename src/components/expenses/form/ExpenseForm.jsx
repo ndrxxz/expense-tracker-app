@@ -1,7 +1,12 @@
 import { Button, FormField, Select } from "@/components/ui";
-import React from "react";
+import React, { useState } from "react";
 
 function ExpenseForm() {
+  const [descInput, setDescInput] = useState("");
+  const [amountInput, setAmountInput] = useState("");
+  const [categoryInput, setCategoryInput] = useState("");
+  const [dateInput, setDateInput] = useState("");
+
   const options = [
     { value: "Food", label: "🍔 Food" },
     { value: "Transport", label: "🚌 Transport" },
@@ -11,7 +16,7 @@ function ExpenseForm() {
   ];
 
   return (
-    <form className="flex flex-col gap-3">
+    <form onSubmit={""} className="flex flex-col gap-3">
       <div className="text-xs font-semibold text-zinc-500 uppercase tracking-wide">
         Add expenses
       </div>
@@ -20,6 +25,8 @@ function ExpenseForm() {
         label="Description"
         id="input-desc"
         type="text"
+        value={descInput}
+        onChange={(e) => setDescInput(e.target.value)}
         placeholder="e.g. Jollibee lunch"
       />
 
@@ -27,15 +34,25 @@ function ExpenseForm() {
         label="Amount (₱)"
         id="input-amount"
         type="number"
+        value={amountInput}
+        onChange={(e) => setAmountInput(e.target.value)}
         placeholder="e.g. 0.00"
       />
 
-      <Select label="Category" id="input-category" options={options} />
+      <Select
+        label="Category"
+        id="input-category"
+        options={options}
+        value={categoryInput}
+        onChange={(e) => setCategoryInput(e.target.value)}
+      />
 
       <FormField
         label="Date"
         id="input-date"
         type="date"
+        value={dateInput}
+        onChange={(e) => setDateInput(e.target.value)}
       />
 
       <Button label={"+ Add expense"} />
