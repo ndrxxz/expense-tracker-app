@@ -1,4 +1,5 @@
 import React from "react";
+import { EmptyState } from "@/components/ui";
 
 function ExpenseList() {
   return (
@@ -7,7 +8,11 @@ function ExpenseList() {
         Expenses
       </div>
 
-      
+      <EmptyState />
+
+      <div className="flex flex-col max-h-120 overflow-y-auto">
+        
+      </div>
     </div>
   );
 }
