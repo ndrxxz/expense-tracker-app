@@ -1,4 +1,4 @@
-import { FormField } from "@/components/ui";
+import { Button, FormField } from "@/components/ui";
 import React from "react";
 
 function BudgetForm() {
@@ -12,14 +12,10 @@ function BudgetForm() {
         label="Monthly budget (₱)"
         id="input-budget"
         type="number"
-        value=""
-        onChange=""
         placeholder="e.g. 20000"
       />
 
-      <button className="w-full bg-zinc-600 hover:bg-zinc-700 text-white text-sm font-semibold rounded-lg py-2.5 cursor-pointer">
-        Save budget
-      </button>
+      <Button label={"Save budget"} />
     </form>
   );
 }
