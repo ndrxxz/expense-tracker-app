@@ -6,6 +6,9 @@ function BudgetForm({ onSetBudget }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (budgetInput.trim() === "") return;
+
     onSetBudget(parseFloat(budgetInput));
     setBudgetInput("");
   }
