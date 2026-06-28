@@ -1,11 +1,29 @@
 import { Button, FormField, Select } from "@/components/ui";
 import React, { useState } from "react";
 
-function ExpenseForm() {
+function ExpenseForm({ onAddExpense }) {
   const [descInput, setDescInput] = useState("");
   const [amountInput, setAmountInput] = useState("");
   const [categoryInput, setCategoryInput] = useState("");
   const [dateInput, setDateInput] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newExpense = {
+      description: descInput,
+      amount: parseFloat(amountInput),
+      category: categoryInput,
+      date: dateInput
+    }
+
+    onAddExpense(newExpense);
+
+    setDescInput("");
+    setAmountInput("");
+    setCategoryInput("");
+    setDateInput("");
+  }
 
   const options = [
     { value: "Food", label: "🍔 Food" },
@@ -16,7 +34,7 @@ function ExpenseForm() {
   ];
 
   return (
-    <form onSubmit={""} className="flex flex-col gap-3">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
       <div className="text-xs font-semibold text-zinc-500 uppercase tracking-wide">
         Add expenses
       </div>

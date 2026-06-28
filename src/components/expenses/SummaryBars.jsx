@@ -6,9 +6,9 @@ function SummaryBars({ budget, spent, remaining }) {
     <div className="grid grid-cols-3 gap-3">
       <SummaryBar label={"Monthly budget"} amount={budget} />
 
-      <SummaryBar label={"Total spent"} amount={0} />
+      <SummaryBar label={"Total spent"} amount={spent} />
 
-      <SummaryBar label={"Remaining"} amount={0} />
+      <SummaryBar label={"Remaining"} amount={remaining} />
     </div>
   );
 }
