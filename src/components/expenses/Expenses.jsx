@@ -3,6 +3,7 @@ import { SummaryBars, Forms, ExpenseList } from "@/components/expenses";
 
 function Expenses() {
   const [totalBudget, setTotalBudget] = useState(0);
+  const [totalExpense, setTotalExpense] = useState([]);
 
   const handleSetBudget = (newBudget) => {
     setTotalBudget(newBudget);
