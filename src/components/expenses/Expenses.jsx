@@ -8,6 +8,15 @@ function Expenses() {
   const handleSetBudget = (newBudget) => {
     setTotalBudget(newBudget);
   }
+
+  const handleSetExpense = (newExpense) => {
+    setTotalExpense([...totalExpense, newExpense]);
+  }
+
+  const totalAmount = totalExpense.reduce((sum, expense) => sum + expense.amount, 0);
+
+  const totalRemaining = totalBudget - totalAmount;
+
   return (
     <div className="flex justify-center px-4">
       <div className="flex flex-col gap-3 w-4xl">
