@@ -1,4 +1,5 @@
 import { Button, FormField, Select } from "@/components/ui";
+import { categoryOptions } from "@/data";
 import React, { useState } from "react";
 
 function ExpenseForm({ onAddExpense }) {
@@ -24,14 +25,6 @@ function ExpenseForm({ onAddExpense }) {
     setCategoryInput("");
     setDateInput("");
   }
-
-  const options = [
-    { value: "Food", label: "🍔 Food" },
-    { value: "Transport", label: "🚌 Transport" },
-    { value: "Bills", label: "⚡ Bills" },
-    { value: "Shopping", label: "🛍️ Shopping" },
-    { value: "Other", label: "📦 Other" },
-  ];
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-3">
@@ -60,7 +53,7 @@ function ExpenseForm({ onAddExpense }) {
       <Select
         label="Category"
         id="input-category"
-        options={options}
+        options={categoryOptions}
         value={categoryInput}
         onChange={(e) => setCategoryInput(e.target.value)}
       />
