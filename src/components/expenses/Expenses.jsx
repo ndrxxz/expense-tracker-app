@@ -12,7 +12,7 @@ function Expenses() {
 
   useEffect(() => {
     const stored = localStorage.getItem("budget");
-    setTotalBudget(stored || "");
+    setTotalBudget(parseFloat(stored) || 0);
   }, []);
 
   useEffect(() => {
