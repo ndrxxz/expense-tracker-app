@@ -13,6 +13,10 @@ function Expenses() {
     setTotalExpense([...totalExpense, newExpense]);
   }
 
+  const handleDelete = (deleteId) => {
+    setTotalExpense(prev => prev.filter(expense => expense.id !== deleteId));
+  }
+
   const totalAmount = totalExpense.reduce((sum, expense) => sum + expense.amount, 0);
 
   const totalRemaining = totalBudget - totalAmount;
@@ -24,7 +28,7 @@ function Expenses() {
 
         <div className="grid grid-cols-2 gap-3 items-start">
           <Forms onSetBudget={handleSetBudget} onAddExpense={handleSetExpense} />
-          <ExpenseList expenses={totalExpense} />
+          <ExpenseList expenses={totalExpense} handleDelete={handleDelete} />
         </div>
       </div>
     </div>
