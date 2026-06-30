@@ -2,25 +2,21 @@ import React, { useEffect, useState } from "react";
 import { SummaryBars, Forms, ExpenseList } from "@/components/expenses";
 
 function Expenses() {
-  const [totalBudget, setTotalBudget] = useState(0);
-  const [totalExpense, setTotalExpense] = useState([]);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("expenses");
-    setTotalExpense(JSON.parse(stored) || []);
-  }, []);
-
-  useEffect(() => {
+  const [totalBudget, setTotalBudget] = useState(() => {
     const stored = localStorage.getItem("budget");
-    setTotalBudget(stored || "");
-  }, []);
+    return stored ? JSON.parse(stored) : 0;
+  });
+  const [totalExpense, setTotalExpense] = useState(() => {
+    const stored = localStorage.getItem("expenses");
+    return stored ? JSON.parse(stored) : [];
+  });
 
   useEffect(() => {
     localStorage.setItem("expenses", JSON.stringify(totalExpense));
   }, [totalExpense]);
 
   useEffect(() => {
-    localStorage.setItem("budget", totalBudget);
+    localStorage.setItem("budget", JSON.stringify(totalBudget));
   }, [totalBudget]);
 
   const handleSetBudget = (newBudget) => {
