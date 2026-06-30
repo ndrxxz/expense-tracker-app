@@ -3,13 +3,19 @@ import { categoryOptions } from "@/data";
 import React, { useState } from "react";
 
 function ExpenseForm({ onAddExpense }) {
-  const [descInput, setDescInput] = useState("");
-  const [amountInput, setAmountInput] = useState("");
-  const [categoryInput, setCategoryInput] = useState("");
-  const [dateInput, setDateInput] = useState("");
+  const [form, setForm] = useState({
+    descInput: "",
+    amountInput: "",
+    categoryInput: "",
+    dateInput: ""
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const { descInput, amountInput, categoryInput, dateInput } = form;
+
+    if (!descInput || !amountInput || !categoryInput || !dateInput) return;
 
     const newExpense = {
       description: descInput,
@@ -20,11 +26,20 @@ function ExpenseForm({ onAddExpense }) {
 
     onAddExpense(newExpense);
 
-    setDescInput("");
-    setAmountInput("");
-    setCategoryInput("");
-    setDateInput("");
+    setForm({
+      descInput: "",
+      amountInput: "",
+      categoryInput: "",
+      dateInput: ""
+    });
   }
+
+  const handleChange = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value
+    });
+  };
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-3">
@@ -35,35 +50,39 @@ function ExpenseForm({ onAddExpense }) {
       <FormField
         label="Description"
         id="input-desc"
+        name="descInput"
         type="text"
-        value={descInput}
-        onChange={(e) => setDescInput(e.target.value)}
+        value={form.descInput}
+        onChange={handleChange}
         placeholder="e.g. Jollibee lunch"
       />
 
       <FormField
         label="Amount (₱)"
         id="input-amount"
+        name="amountInput"
         type="number"
-        value={amountInput}
-        onChange={(e) => setAmountInput(e.target.value)}
+        value={form.amountInput}
+        onChange={handleChange}
         placeholder="e.g. 0.00"
       />
 
       <Select
         label="Category"
         id="input-category"
+        name="categoryInput"
         options={categoryOptions}
-        value={categoryInput}
-        onChange={(e) => setCategoryInput(e.target.value)}
+        value={form.categoryInput}
+        onChange={handleChange}
       />
 
       <FormField
         label="Date"
         id="input-date"
+        name="dateInput"
         type="date"
-        value={dateInput}
-        onChange={(e) => setDateInput(e.target.value)}
+        value={form.dateInput}
+        onChange={handleChange}
       />
 
       <Button label={"+ Add expense"} />
