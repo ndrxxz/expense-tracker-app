@@ -1,7 +1,7 @@
 import React from "react";
 import { EmptyState } from "@/components/ui";
 import { RiDeleteBinLine } from "react-icons/ri";
-import { formatDate } from "@/utils";
+import { formatDate, categoryIcons } from "@/utils";
 
 function ExpenseList({ expenses }) {
   return (
@@ -19,7 +19,7 @@ function ExpenseList({ expenses }) {
                 className="flex items-center gap-2.5 py-2.5 border-b border-zinc-600 last:border-b-0"
               >
                 <div className="w-9 h-9 rounded-xl bg-zinc-700 flex items-center justify-center text-base shrink-0">
-                  🍔
+                  {categoryIcons(expense.category)}
                 </div>
 
                 <div className="flex-1 min-w-0">
