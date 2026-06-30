@@ -20,7 +20,7 @@ function Expenses() {
   }, [totalExpense]);
 
   useEffect(() => {
-    localStorage.setItem("budget", totalBudget);
+    localStorage.setItem("budget", JSON.stringify(totalBudget));
   }, [totalBudget]);
 
   const handleSetBudget = (newBudget) => {
