@@ -1,7 +1,7 @@
 export const categoryOptions = [
-  { value: "Food", label: "🍔 Food" },
-  { value: "Transport", label: "🚌 Transport" },
-  { value: "Bills", label: "⚡ Bills" },
-  { value: "Shopping", label: "🛍️ Shopping" },
-  { value: "Other", label: "📦 Other" },
+  { value: "Food", label: "🍔 Food", icon: "🍔" },
+  { value: "Transport", label: "🚌 Transport", icon: "🚌" },
+  { value: "Bills", label: "⚡ Bills", icon: "⚡" },
+  { value: "Shopping", label: "🛍️ Shopping", icon: "🛍️" },
+  { value: "Other", label: "📦 Other", icon: "📦" },
 ];
