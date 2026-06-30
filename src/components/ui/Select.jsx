@@ -1,6 +1,6 @@
 import React from "react";
 
-function Select({ label, id, options, value, onChange, placeholder = "Choose options" }) {
+function Select({ label, id, name, options, value, onChange, placeholder = "Choose options" }) {
   return (
     <div className="flex flex-col gap-2">
       <label htmlFor="input-category" className="text-sm">
@@ -9,6 +9,7 @@ function Select({ label, id, options, value, onChange, placeholder = "Choose opt
 
       <select
         id={id}
+        name={name}
         value={value}
         onChange={onChange}
         className="w-full text-sm text-white border border-white/10 bg-zinc-900 rounded-md px-2.5 py-2 outline-none focus:border-zinc-500"

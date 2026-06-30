@@ -1,6 +1,6 @@
 import React from "react";
 
-function FormField({ label, id, type, value, onChange, placeholder }) {
+function FormField({ label, id, name, type, value, onChange, placeholder }) {
   return (
     <div className="flex flex-col gap-2">
       <label htmlFor={id} className="text-sm">
@@ -10,6 +10,7 @@ function FormField({ label, id, type, value, onChange, placeholder }) {
       <input
         type={type}
         id={id}
+        name={name}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
