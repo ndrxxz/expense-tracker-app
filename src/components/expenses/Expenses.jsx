@@ -4,11 +4,11 @@ import { SummaryBars, Forms, ExpenseList } from "@/components/expenses";
 function Expenses() {
   const [totalBudget, setTotalBudget] = useState(() => {
     const stored = localStorage.getItem("budget");
-    return stored ? JSON.parse(stored) : 0;
+    return JSON.parse(stored) || 0;
   });
   const [totalExpense, setTotalExpense] = useState(() => {
     const stored = localStorage.getItem("expenses");
-    return stored ? JSON.parse(stored) : [];
+    return JSON.parse(stored) || [];
   });
 
   useEffect(() => {
