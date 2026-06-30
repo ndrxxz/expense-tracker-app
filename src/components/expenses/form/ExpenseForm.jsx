@@ -18,6 +18,7 @@ function ExpenseForm({ onAddExpense }) {
     if (!descInput || !amountInput || !categoryInput || !dateInput) return;
 
     const newExpense = {
+      id: Date.now(),
       description: descInput,
       amount: parseFloat(amountInput),
       category: categoryInput,
